@@ -27,7 +27,7 @@ public:
     hash_list();
 
     /** 
-     * You DO NOT need to implement the following two functions (the ones that are commented as copy constructor and assignment operator).
+     * You need to define these functions in hash_list.cpp but can leave them blank (this is done for you in provided hash_list.cpp file)
      * You'll learn what they are and will implement them in the next part of the lab. For now all that you need to know is that you
      * shouldn't write any code like the following.
      * 

@@ -18,3 +18,4 @@ instructor_tests: $(APP).o
 
 clean:
 	rm -f $(APP)
+	rm -f *.tar
