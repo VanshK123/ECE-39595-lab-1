@@ -12,9 +12,9 @@ hash_list &hash_list::operator=(const hash_list &other)
     return *this;
 }
 
-void insert(int key, float value)
+void hash_list::insert(int key, float value)
 {
-   // node* temp = hash_list::head;
+   node* temp = head;
 //check if node exists
 
 //no node there
