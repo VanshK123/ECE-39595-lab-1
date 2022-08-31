@@ -56,9 +56,27 @@ return newNode;
 
 void hash_list::remove(int key){
     
-    node* temp1 = head;
-    node* temp2 = NULL;
-    
+    bool found = false;
+    node* current = head;
+    int pos = 0;
+    while(current != NULL){
+        if(current -> key == key){
+            found = true;
+            break;
+        }
+        pos++;
+        current = current->next;
+    }
+
+    for(int i = 0; i<pos;i++){
+        if(current -> next!=NULL){
+            current = current -> next;
+        }
+    }
+    if(found){
+    current -> next =  current -> next -> next;
+    return true;
+    } 
 
     return false;
 }
