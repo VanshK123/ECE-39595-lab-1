@@ -15,51 +15,47 @@ hash_list &hash_list::operator=(const hash_list &other)
 
 void hash_list::insert(int key, float value)
 {
-    node* temp = head;
-    newNode = malloc(sizeof(node*));
-    newNode->data = value;
-    newNode->key = key;
-   bool dup = false;
-    while(temp != NULL)
+    // Find the head node, set current to head
+    node *current = head;
+    bool hasWritten = false;
+
+    // Traverse list
+    while (current != NULL)
     {
-        cout << temp->key;
-    }
-    node* current = head;
-
-    while(current != NULL){
-        if(current->key == key){
+        // If you find a key that matches, update value and bool
+        if (current->key == key)
+        {
             current->value = value;
-            dup = true;
-            return current;
+            hasWritten = true;
         }
+        cout << current->key;
+        current = current->next;
     }
-    while(current->next != NULL){
-          current = current->next;
-    }
-    current->next = newNode; 
-//check if node exists
-    
-//no node there
 
-//node there
+    // If no values have been updated (new key), make a new node and append to end
+    if (hasWritten == false)
+    {
+        current = _insnode(key, value);
+    }
+
+    return;
 }
 
-node* _insnode(int key, float value)
+node *_insnode(int key, float value)
 {
-//create node
-struct node *newNode = new (node);
-newNode->key = key;
-newNode->value=value;
-newNode->next=NULL;
-return newNode;
+    // create node
+    node *newNode = new (node);
+    newNode->key = key;
+    newNode->value = value;
+    newNode->next = NULL;
+    return newNode;
 }
 
-void hash_list::remove(int key){
-    
-    node* temp1 = head;
-    node* temp2 = NULL;
-    
+bool hash_list::remove(int key)
+{
+
+    node *temp1 = head;
+    node *temp2 = NULL;
 
     return false;
 }
-
