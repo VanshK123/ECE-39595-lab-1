@@ -51,11 +51,28 @@ node *_insnode(int key, float value)
     return newNode;
 }
 
-bool hash_list::remove(int key)
-{
+bool hash_list::remove(int key){
+    
+    bool found = false;
+    node* current = head;
+    int pos = 0;
+    while(current != NULL){
+        if(current -> key == key){
+            found = true;
+            break;
+        }
+        pos++;
+        current = current->next;
+    }
 
-    node *temp1 = head;
-    node *temp2 = NULL;
-
+    for(int i = 0; i<pos;i++){
+        if(current -> next!=NULL){
+            current = current -> next;
+        }
+    }
+    if(found){
+    current -> next =  current -> next -> next;
+    return true;
+    } 
     return false;
 }
