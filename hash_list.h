@@ -69,7 +69,8 @@ public:
 
     /** Free all memory associated with the nodes. This must not free the nodes recursively */
     ~hash_list();
-
+    //Delete this
+    void printArray();
 private:
     /** The number of nodes in the list */
     size_t size;
@@ -77,5 +78,7 @@ private:
     /** A pointer to the first node in the list */
     node *head;
 };
+
+
 
 #endif

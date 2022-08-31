@@ -85,6 +85,7 @@ bool hash_list::remove(int key){
             current = current -> next;
         }
     }
+    
     if(found){
     current -> next =  current -> next -> next;
     return true;
@@ -92,16 +93,15 @@ bool hash_list::remove(int key){
     return false;
 }
 
-/*
-void printArray(node* head)
+
+void hash_list::printArray()
 {
 node* current = head;
 
 while(current != NULL)
 {
     std::cout << "Key: " << current->key << "Value: " << current->value;
-    current = current->next
+    current = current->next;
 }
 }
 
-*/
