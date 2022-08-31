@@ -1,5 +1,6 @@
 #include "hash_list.h"
-
+#include "iostream"
+using namespace std;
 
 /** Don't delete this function but you can leave it empty */
 hash_list::hash_list(const hash_list &other)
@@ -14,7 +15,12 @@ hash_list &hash_list::operator=(const hash_list &other)
 
 void hash_list::insert(int key, float value)
 {
-   node* temp = head;
+    node* temp = head;
+    while(temp != NULL)
+    {
+        cout << temp->key;
+    }
+   
 //check if node exists
 
 //no node there
