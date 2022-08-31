@@ -2,16 +2,31 @@
 #include "iostream"
 using namespace std;
 
+node* _insnode(int key, float value);
+
 /** Don't delete this function but you can leave it empty */
 hash_list::hash_list(const hash_list &other)
 {
 }
+
 
 /** Don't delete this function, but you can leave it as is */
 hash_list &hash_list::operator=(const hash_list &other)
 {
     return *this;
 }
+
+hash_list::hash_list()
+{
+    size = 0;
+    head = NULL;
+}
+
+hash_list::~hash_list()
+{
+    
+}
+
 
 void hash_list::insert(int key, float value)
 {
@@ -41,7 +56,7 @@ void hash_list::insert(int key, float value)
     return;
 }
 
-node *_insnode(int key, float value)
+node* _insnode(int key, float value)
 {
     // create node
     node *newNode = new (node);
@@ -76,3 +91,17 @@ bool hash_list::remove(int key){
     } 
     return false;
 }
+
+/*
+void printArray(node* head)
+{
+node* current = head;
+
+while(current != NULL)
+{
+    std::cout << "Key: " << current->key << "Value: " << current->value;
+    current = current->next
+}
+}
+
+*/
