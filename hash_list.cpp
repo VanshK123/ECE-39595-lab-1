@@ -31,26 +31,44 @@ hash_list::~hash_list()
 void hash_list::insert(int key, float value)
 {
     // Find the head node, set current to head
-    node *current = head;
+    node* current = head;
+    node* previousNode = head;
     bool hasWritten = false;
+
+    //Check if first, update head if is
+    if(current == NULL)
+    {
+        std::cout << "head is null, writing here" << std::endl;
+        current = _insnode(key, value);
+        head = current;
+        return;
+    }
 
     // Traverse list
     while (current != NULL)
     {
+        
         // If you find a key that matches, update value and bool
         if (current->key == key)
         {
+            std::cout << "Found duplicate, overwriting" << std::endl;
             current->value = value;
             hasWritten = true;
         }
-        cout << current->key;
+        if(current != NULL)
+        {
+            previousNode = current;
+        }
         current = current->next;
+        
     }
 
     // If no values have been updated (new key), make a new node and append to end
     if (hasWritten == false)
     {
+        std::cout << "Appending node" << std::endl;
         current = _insnode(key, value);
+        previousNode->next = current;
     }
 
     return;
@@ -100,7 +118,7 @@ node* current = head;
 
 while(current != NULL)
 {
-    std::cout << "Key: " << current->key << "Value: " << current->value;
+    std::cout << "Key: " << current->key << "   Value: " << current->value << std::endl;
     current = current->next;
 }
 }
