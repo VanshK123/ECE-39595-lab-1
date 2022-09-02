@@ -70,24 +70,26 @@ void hash_list::insert(int key, float value)
         current = _insnode(key, value);
         previousNode->next = current;
     }
-    std::optional<float> hash_list::get_value(int key) const{
-        bool found = false;
+    
+    return;
+}
+std::optional<float> hash_list::get_value(int key) const{
+        //bool found = false;
         float val = 0;
-         node* current = head;
+        node* current = head;
         int pos = 0;
         while(current != NULL){
             if(current -> key == key){
-                found = true;
+                //found = true;
                 val = current->value;
                 break;
         }
         pos++;
         current = current->next;
     }
+    return val;
 
     }
-    return;
-}
 
 node* _insnode(int key, float value)
 {
