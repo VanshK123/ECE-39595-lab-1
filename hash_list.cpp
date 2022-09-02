@@ -38,7 +38,7 @@ void hash_list::insert(int key, float value)
     //Check if first, update head if is
     if(current == NULL)
     {
-        std::cout << "head is null, writing here" << std::endl;
+        std::cout << "(INSERT) head is null, writing here" << std::endl;
         current = _insnode(key, value);
         head = current;
         return;
@@ -51,7 +51,7 @@ void hash_list::insert(int key, float value)
         // If you find a key that matches, update value and bool
         if (current->key == key)
         {
-            std::cout << "Found duplicate, overwriting" << std::endl;
+            std::cout << "(INSERT) Found duplicate, overwriting" << std::endl;
             current->value = value;
             hasWritten = true;
         }
@@ -66,7 +66,7 @@ void hash_list::insert(int key, float value)
     // If no values have been updated (new key), make a new node and append to end
     if (hasWritten == false)
     {
-        std::cout << "Appending node" << std::endl;
+        std::cout << "(INSERT) Appending node" << std::endl;
         current = _insnode(key, value);
         previousNode->next = current;
     }
@@ -118,8 +118,20 @@ node* current = head;
 
 while(current != NULL)
 {
-    std::cout << "Key: " << current->key << "   Value: " << current->value << std::endl;
+    std::cout << "(PRINT) Key: " << current->key << "   Value: " << current->value << std::endl;
     current = current->next;
 }
 }
 
+size_t hash_list::get_size() const
+{
+node* current = head;
+size_t size = 0;
+while(current != NULL)
+{
+    size += 1;
+    current = current->next;
+}
+std::cout << "(GETSIZE) Size: " << size << std::endl;
+    return size;
+}

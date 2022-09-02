@@ -6,26 +6,27 @@
 int main(int argc, char *argv[])
 {
     hash_list list;
-/*
+
     if (list.get_size() != 0)
     {
         std::cout << "Invalid size" << std::endl;
         exit(1);
     }
-*/
 
-std::cout << "Initialized" << std::endl;
+
+std::cout << "(INIT) Initialized" << std::endl;
     list.insert(3, 4);
     list.insert(4, 5);
     list.printArray();
+    list.get_size();
 
-/*
+
     if (list.get_size() != 2)
     {
         std::cout << "Invalid size" << std::endl;
         exit(1);
     }
-
+/*
     if (!list.get_value(3).has_value())
     {
         std::cout << "expected 3 to be in list but it wasn't" << std::endl;
