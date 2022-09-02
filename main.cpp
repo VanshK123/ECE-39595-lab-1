@@ -3,17 +3,6 @@
 #include "hash_list.h"
 
 
-void printArray(node* head)
-{
-node* current = head;
-
-while(current != NULL)
-{
-    std::cout << "Key: " << current->key << "Value: " << current->value;
-    current = current->next;
-}
-}
-
 int main(int argc, char *argv[])
 {
     hash_list list;
@@ -25,6 +14,7 @@ int main(int argc, char *argv[])
     }
 */
 
+std::cout << "Initialized" << std::endl;
     list.insert(3, 4);
     list.insert(4, 5);
     list.printArray();
