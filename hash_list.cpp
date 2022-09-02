@@ -74,21 +74,19 @@ void hash_list::insert(int key, float value)
     return;
 }
 std::optional<float> hash_list::get_value(int key) const{
-        //bool found = false;
-        float val = 0;
         node* current = head;
-        int pos = 0;
-        while(current != NULL){
-            if(current -> key == key){
-                //found = true;
-                val = current->value;
-                break;
-        }
-        pos++;
-        current = current->next;
+while(current != NULL)
+{
+    //finds
+    if(current->key == key)
+    {
+        std::cout << "(GETVALUE) Value: " << current->value << std::endl;
+return current->value;
     }
-    return val;
-
+    current = current->next;
+}
+std::cout << "(GETVALUE) Did not Find" << std::endl;
+    return {};
     }
 
 node* _insnode(int key, float value)
@@ -102,29 +100,51 @@ node* _insnode(int key, float value)
 }
 
 bool hash_list::remove(int key){
-    
-    bool found = false;
     node* current = head;
-    int pos = 0;
-    while(current != NULL){
-        if(current -> key == key){
-            found = true;
-            break;
-        }
-        pos++;
-        current = current->next;
+    node* prev = head;
+    node* next = NULL;
+
+    if(head != NULL && (head->key == key))
+    {
+        node* temp = head;
+        head = head->next;
+        delete temp;
+        std::cout << "(REMOVE) Did remove Head: "<< "Key: " << key  << std::endl;
+        return true;
+
     }
 
-    for(int i = 0; i<pos;i++){
-        if(current -> next!=NULL){
-            current = current -> next;
+    while(current != NULL)
+    {
+        if(current == NULL)
+        {
+            //DID NOT FIND TO REMOVE
+            std::cout << "(REMOVE) Did Not Find: "<< "Key: " << key  << std::endl;
+            return false;
+        }
+
+        if(current->key == key)
+        {
+            prev->next = next;
+            //free current
+            delete current;
+            std::cout << "(REMOVE) Did Find: "<< "Key: " << key  << std::endl;
+            return true;
+
+        }
+
+        prev = current;
+        current = current->next;
+        if(current != NULL)
+        {
+            next = current;
+        }
+        else
+        {
+            next = NULL;
         }
     }
-    
-    if(found){
-    current -> next =  current -> next -> next;
-    return true;
-    } 
+
     return false;
 }
  

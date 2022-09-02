@@ -26,12 +26,14 @@ std::cout << "(INIT) Initialized" << std::endl;
         std::cout << "Invalid size" << std::endl;
         exit(1);
     }
-/*
+
     if (!list.get_value(3).has_value())
     {
         std::cout << "expected 3 to be in list but it wasn't" << std::endl;
         exit(1);
     }
+
+list.printArray();
 
     if (!list.remove(3))
     {
@@ -39,12 +41,16 @@ std::cout << "(INIT) Initialized" << std::endl;
         exit(1);
     }
 
+list.printArray();
+
     if (list.get_value(3).has_value())
     {
         std::cout << "Unexpected 3 in list" << std::endl;
         exit(1);
     }
 
-    */
+    
+
+    
 }
 
