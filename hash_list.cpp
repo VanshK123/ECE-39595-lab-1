@@ -52,7 +52,9 @@ void hash_list::insert(int key, float value)
     {
         current = _insnode(key, value);
     }
-
+    std::optional<float> hash_list::get_value(int key) const{
+        
+    }
     return;
 }
 
@@ -92,6 +94,7 @@ bool hash_list::remove(int key){
     } 
     return false;
 }
+ 
 
 
 void hash_list::printArray()
