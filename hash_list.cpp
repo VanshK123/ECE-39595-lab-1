@@ -1,6 +1,5 @@
 #include "hash_list.h"
-#include "iostream"
-using namespace std;
+
 
 node* _insnode(int key, float value);
 
@@ -38,7 +37,7 @@ void hash_list::insert(int key, float value)
     //Check if first, update head if is
     if(current == NULL)
     {
-        std::cout << "(INSERT) head is null, writing here" << std::endl;
+        //std::cout << "(INSERT) head is null, writing here" << std::endl;
         current = _insnode(key, value);
         head = current;
         return;
@@ -51,7 +50,7 @@ void hash_list::insert(int key, float value)
         // If you find a key that matches, update value and bool
         if (current->key == key)
         {
-            std::cout << "(INSERT) Found duplicate, overwriting" << std::endl;
+            //std::cout << "(INSERT) Found duplicate, overwriting" << std::endl;
             current->value = value;
             hasWritten = true;
         }
@@ -66,7 +65,7 @@ void hash_list::insert(int key, float value)
     // If no values have been updated (new key), make a new node and append to end
     if (hasWritten == false)
     {
-        std::cout << "(INSERT) Appending node" << std::endl;
+        //std::cout << "(INSERT) Appending node" << std::endl;
         current = _insnode(key, value);
         previousNode->next = current;
     }
@@ -80,12 +79,12 @@ while(current != NULL)
     //finds
     if(current->key == key)
     {
-        std::cout << "(GETVALUE) Value: " << current->value << std::endl;
+        //std::cout << "(GETVALUE) Value: " << current->value << std::endl;
 return current->value;
     }
     current = current->next;
 }
-std::cout << "(GETVALUE) Did not Find" << std::endl;
+//std::cout << "(GETVALUE) Did not Find" << std::endl;
     return {};
     }
 
@@ -109,7 +108,7 @@ bool hash_list::remove(int key){
         node* temp = head;
         head = head->next;
         delete temp;
-        std::cout << "(REMOVE) Did remove Head: "<< "Key: " << key  << std::endl;
+        //std::cout << "(REMOVE) Did remove Head: "<< "Key: " << key  << std::endl;
         return true;
 
     }
@@ -119,7 +118,7 @@ bool hash_list::remove(int key){
         if(current == NULL)
         {
             //DID NOT FIND TO REMOVE
-            std::cout << "(REMOVE) Did Not Find: "<< "Key: " << key  << std::endl;
+            //std::cout << "(REMOVE) Did Not Find: "<< "Key: " << key  << std::endl;
             return false;
         }
 
@@ -128,7 +127,7 @@ bool hash_list::remove(int key){
             prev->next = next;
             //free current
             delete current;
-            std::cout << "(REMOVE) Did Find: "<< "Key: " << key  << std::endl;
+            //std::cout << "(REMOVE) Did Find: "<< "Key: " << key  << std::endl;
             return true;
 
         }
@@ -144,7 +143,7 @@ bool hash_list::remove(int key){
             next = NULL;
         }
     }
-
+//std::cout << "(REMOVE) Did Not Find: "<< "Key: " << key  << std::endl;
     return false;
 }
  
@@ -156,7 +155,7 @@ node* current = head;
 
 while(current != NULL)
 {
-    std::cout << "(PRINT) Key: " << current->key << "   Value: " << current->value << std::endl;
+    //std::cout << "(PRINT) Key: " << current->key << "   Value: " << current->value << std::endl;
     current = current->next;
 }
 }
@@ -170,6 +169,6 @@ while(current != NULL)
     size += 1;
     current = current->next;
 }
-std::cout << "(GETSIZE) Size: " << size << std::endl;
+//std::cout << "(GETSIZE) Size: " << size << std::endl;
     return size;
 }

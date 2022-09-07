@@ -51,6 +51,43 @@ list.printArray();
 
     
 
-    
+    std::cout << "<Starting Test for Trace 1>" << std::endl;
+    hash_list list2;
+    list2.get_size();
+    list2.insert(1, 1);
+    list2.insert(2, 2);
+    list2.insert(3, 3);
+    list2.insert(4, 4);
+    list2.get_value(1);
+    list2.get_value(2);
+    list2.get_value(3);
+    list2.get_value(4);
+    list2.printArray();
+    std::cout << "<Starting Test for Trace 2>" << std::endl;
+    hash_list list3;
+    list3.insert(1, 1);
+    list3.insert(1, 11);
+    list3.insert(2, 2);
+    list3.insert(2, 22);
+    list3.insert(3, 3);
+    list3.insert(3, 33);
+    list3.insert(4, 4);
+    list3.insert(4, 44);
+    list3.printArray();
+    std::cout << "<Starting Test for Trace 3>" << std::endl;
+    list3.get_value(101);
+    list3.get_value(102);
+    list3.get_value(103);
+    list3.get_value(104);
+    std::cout << "<Starting Test for Trace 4>" << std::endl;
+    list3.remove(1);
+    list3.remove(2);
+    list3.get_value(1);
+    list3.get_value(2);
+    list3.printArray();
+    std::cout << "<Starting Test for Trace 5>" << std::endl;
+    list3.remove(101);
+    list3.remove(102);
+
 }
 
