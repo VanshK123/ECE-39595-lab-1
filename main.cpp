@@ -89,5 +89,9 @@ list.printArray();
     list3.remove(101);
     list3.remove(102);
 
+    std::cout << "<Remaining>" << std::endl;
+    list.printArray();
+    list2.printArray();
+    list3.printArray();
 }
 

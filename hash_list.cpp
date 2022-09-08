@@ -1,6 +1,5 @@
 #include "hash_list.h"
 
-
 node* _insnode(int key, float value);
 
 /** Don't delete this function but you can leave it empty */
@@ -23,6 +22,16 @@ hash_list::hash_list()
 
 hash_list::~hash_list()
 {
+    node* current;
+
+    while (head != NULL)
+    {
+        current = head;
+        head = head->next;
+        delete current;
+    }
+    
+    //std::cout << "(DESTRUCTOR)  Destruct Finished" << std::endl;
     
 }
 
